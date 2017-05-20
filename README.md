@@ -3,6 +3,8 @@ A node red prototype of a service toolbox to answer questions concerning traffic
 
 (Very much work in progress, code organisation, tidying, commenting needs to take place as well as actually creating many of the services required).
 
+Currently a UI is set up at [URL to node-red service]/ui which allows the selection of a camera id and will populate with information from currently available services.
+
 # TFL Node Red Overview - A Deep Dive in TFL Congestion to Explore Coalition SItuational Understanding
 
 This node red implementation aims to provide a simple prototype for a service structure for a coalition concerned with traffic within london. 
