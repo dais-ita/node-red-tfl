@@ -23,9 +23,6 @@ def GetCameraId():
     
     root = tree.getroot()
 
-    for child in root:
-        print(child.tag)
-
     contents = root.findall('{http://s3.amazonaws.com/doc/2006-03-01/}Contents')
     
     camera_ids = []
@@ -35,8 +32,10 @@ def GetCameraId():
         if(key[-3:] == "jpg"):
             camera_ids.append(key.replace("00001.","").replace(".jpg",""))
 
-    return str(camera_ids)
-
+    camera_dict = {"camera_ids": camera_ids}
+    
+    #return str(camera_ids)
+    return json.dumps(camera_dict)
 
 
 if __name__ == "__main__":
