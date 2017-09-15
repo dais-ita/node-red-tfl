@@ -20,6 +20,11 @@ def readb64(base64_string):
     pimg = Image.open(sbuf)
     return cv2.cvtColor(np.array(pimg), cv2.COLOR_RGB2BGR)
 
+def encIMG64(image):
+    retval, buffer = cv2.imencode('.jpg', image)
+    return base64.b64encode(buffer)
+
+
 
 def URLtoImage(url):
     response = urllib.urlopen(url)
@@ -36,8 +41,7 @@ def generate_frames(video,frame_step,loop=False):
         frame_count += 1
         if not frame is None:
             if frame_count == 0 or (frame_count +1) % frame_step == 0:
-                retval, buffer = cv2.imencode('.jpg', frame)
-                jpg_as_text = base64.b64encode(buffer)
+                jpg_as_text = encIMG64(frame)
                 print("yielding frame: " +str(frame_count+1))
                 yield jpg_as_text
             else:
