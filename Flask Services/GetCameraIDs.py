@@ -25,7 +25,7 @@ def GetCameraId():
 
     contents = root.findall('{http://s3.amazonaws.com/doc/2006-03-01/}Contents')
     
-    camera_ids = []
+    camera_ids = ["08953","08954","08962","04254","09801","09800","06710","09747"]
 
     for content in contents:
         key = content.find('{http://s3.amazonaws.com/doc/2006-03-01/}Key').text
